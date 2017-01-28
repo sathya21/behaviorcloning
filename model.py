@@ -70,7 +70,7 @@ def get_model(time_len=1):
   model.add(ELU())
   model.add(Dense(1))
 
-  adam= Adam(lr=0.001)
+  adam= Adam(lr=0.0001)
   #, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0
   model.compile(optimizer=adam, loss='mse', metrics=['accuracy'])
 
@@ -89,8 +89,16 @@ def read_csv():
               crop_img = image_resized[34:100,0:200 ]
               X_train_list.append(crop_img)
               y_train_list.append(i[3])
-
-
+              img1 = mpimg.imread(i[1].strip())
+              image_resized = cv2.resize(img1, (200, 100))
+              crop_img = image_resized[34:100,0:200 ]
+              X_train_list.append(crop_img)
+              y_train_list.append(float(i[3])+0.27)
+              img1 = mpimg.imread(i[2].strip())
+              image_resized = cv2.resize(img1, (200, 100))
+              crop_img = image_resized[34:100,0:200 ]
+              X_train_list.append(crop_img)
+              y_train_list.append(float(i[3])-0.27)
           j=j+1
 
 X_train_list = []
