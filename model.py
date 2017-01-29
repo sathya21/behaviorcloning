@@ -147,7 +147,7 @@ X_train, y_train = shuffle(X_train, y_train)
 
 model = get_model()
 batch_size = 256
-nb_epoch = 8
+nb_epoch = 15
 
 model.fit(X_train, y_train, batch_size=batch_size, nb_epoch=nb_epoch, verbose=1, validation_data=(X_validation, y_validation))
 
