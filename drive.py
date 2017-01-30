@@ -41,7 +41,7 @@ def telemetry(sid, data):
     image_array = np.asarray(image)
     #image_array  = cv2.resize(image_array, (200, 100))
     #image_array = image_array[34:100,0:200 ]
-    image_array = image_array[32:320,0:200 ]
+    image_array = image_array[32:295,0:200 ]
     image_array = cv2.resize(image_array, (200, 66))
 
     transformed_image_array = image_array[None, :, :, :]
