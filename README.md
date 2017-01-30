@@ -19,9 +19,10 @@ Images from the training were fed into preprocessing steps comprising of
    *  Fourth and Fifth Convolution layer of 64*3*3 with 1*1 stride
    *  Then added 3 Fully connected layers of 100,50 and 10
    *  Learning rate of 0.0001 was used
+   *  Epoch of 8 and batch size of 128 was the best fit based on various iterations
 
 
 # Running
-   * Cropped the image by 32 rows on top and 25 rows at the bottom . 
+   * Cropped the image by 32 rows on top and 25 rows at the bottom .
    * Dimension of the image was changed to 66 * 200
    * reduced throttle to match the training on turns
