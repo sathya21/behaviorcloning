@@ -31,9 +31,7 @@ def get_model(time_len=1):
   model.add(Lambda(lambda x: x/127.5 - 1.,
            input_shape=( row, col, ch),
         output_shape=(row, col, ch)))
-  #model.add(Cropping2D(cropping=((22, 1), (1, 1)), input_shape=(160,320,3),  dim_ordering="tf"))
-  #model.add(Lambda(resize))
-  #model.add(Lambda(normalize))
+
   model.add(Convolution2D(24, 5, 5, subsample=(2, 2), border_mode="valid", init='he_normal'))
   model.add(ELU())
 
@@ -52,26 +50,19 @@ def get_model(time_len=1):
 
 
   model.add(Flatten())
-  #model.add(Dense(1164, init='he_normal'))
-  #model.add(Dropout(.2))
-  #model.add(ELU())
+
 
   model.add(Dense(100, init='he_normal'))
-  #model.add(Dropout(.3))
-
   model.add(ELU())
   model.add(Dense(50, init='he_normal'))
-  #model.add(Dropout(.3))
 
   model.add(ELU())
   model.add(Dense(10, init='he_normal'))
-  #model.add(Dropout(.3))
 
   model.add(ELU())
   model.add(Dense(1, init='he_normal'))
 
   adam= Adam(lr=0.0001)
-  #, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0
   model.compile(optimizer=adam, loss='mse', metrics=['accuracy'])
 
   return model
@@ -88,16 +79,13 @@ def read_csv():
                   img=mpimg.imread(i[0])
                   crop_img = img[22:295,0:200 ]
                   image_resized = cv2.resize(crop_img, (200, 66))
-                  ##image_resized = cv2.resize(img, (200, 100))
-                  #crop_img = image_resized[34:100,0:200 ]
-                  #if(float(i[3]) < -0.01 or float(i[3]) > 0.001):
+
                   X_train_list.append(image_resized)
                   y_train_list.append(i[3])
 
                   img1 = mpimg.imread(i[1].strip())
                   crop_img1 = img1[22:295,0:200 ]
                   image_resized1 = cv2.resize(crop_img1, (200, 66))
-                  #if(float(i[3]) < -0.01 or float(i[3]) > 0.001):
                   X_train_list.append(image_resized1)
                   y_train_list.append(float(i[3])+0.15)
 
@@ -105,24 +93,9 @@ def read_csv():
                   crop_img2 = img2[22:295,0:200]
 
                   image_resized2 = cv2.resize(crop_img2, (200, 66))
-                  #if(float(i[3]) < -0.01 or float(i[3]) > 0.001):
                   X_train_list.append(image_resized2)
                   y_train_list.append(float(i[3])-0.15)
-                  #img=mpimg.imread(i[0])
-                  #image_resized = cv2.resize(img, (200, 100))
-                  #crop_img = image_resized[34:100,0:200 ]
-                  #X_train_list.append(crop_img)
-                  #y_train_list.append(i[3])
-                  #img1 = mpimg.imread(i[1].strip())
-                  #image_resized = cv2.resize(img1, (200, 100))
-                  #crop_img = image_resized[34:100,0:200 ]
-                 # X_train_list.append(crop_img)
-                 # y_train_list.append(float(i[3])+0.15)
-                  #img1 = mpimg.imread(i[2].strip())
-                  #image_resized = cv2.resize(img1, (200, 100))
-                  #crop_img = image_resized[34:100,0:200 ]
-                  #X_train_list.append(crop_img)
-                  #y_train_list.append(float(i[3])-0.15)
+
           j=j+1
 
 X_train_list = []
