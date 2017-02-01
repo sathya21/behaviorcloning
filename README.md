@@ -23,15 +23,20 @@ Images from the training were fed into preprocessing steps comprising of
 
 #training
    * Udacity dataset was taken as the base set.
-   * But there were number of places where i had to augment the base data as the car was going off the track
-   * Where car goes off  track, i trained the car by recording the turn to bring back the car on track
+   * But there were number of places where i had to augment the base data as the car was going off the track, hitting the bride or falling into the lake
+   * Whereever car goes off  track, i trained the car by recording the turn to bring back the car on track
 
-   
+   ## Training the car not to hit the bridge
    ![center_2017_01_29_21_20_00_386](https://cloud.githubusercontent.com/assets/5102280/22514007/f09a9f0e-e8c3-11e6-930d-e176ec89e77d.jpg)
 
+   ## Training the car not to take turn near the lake
    ![center_2017_01_29_22_30_21_241](https://cloud.githubusercontent.com/assets/5102280/22514052/1680dbb6-e8c4-11e6-92e6-a84163ba5512.jpg)
 
+   ## Traing the car to take turn near the open area
+   ![center_2017_01_28_19_32_51_836](https://cloud.githubusercontent.com/assets/5102280/22514867/b4a4726a-e8c6-11e6-9371-3de0787ed10f.jpg)
 
+   ## Data Distribution
+   ![histogram](https://cloud.githubusercontent.com/assets/5102280/22516371/9d20ba4a-e8cb-11e6-82e4-4388c7eebb4a.png)
 # Running
    * Cropped the image by 32 rows on top and 25 rows at the bottom .
    * Dimension of the image was changed to 66 * 200
