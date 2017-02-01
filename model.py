@@ -55,11 +55,13 @@ def get_model(time_len=1):
   model.add(Dense(100, init='he_normal'))
   model.add(ELU())
   model.add(Dense(50, init='he_normal'))
-
   model.add(ELU())
+  model.add(Dropout(0.2))
+
   model.add(Dense(10, init='he_normal'))
-
   model.add(ELU())
+  model.add(Dropout(.2))
+
   model.add(Dense(1, init='he_normal'))
 
   adam= Adam(lr=0.0001)
